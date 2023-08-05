@@ -40,8 +40,15 @@ export default function Stopwatch(props) {
             <div className='inner'>
                 <h1> React Stopwatch </h1>
                 <p id='time' data-testid='time'>
-                    {`0${Math.floor(time%360000)}`.slice(-2)} : {`0${Math.floor(time/60000)%60}`.slice(-2)} : {`0${Math.floor(time/1000)%60}`}
+                    {`0${Math.floor(time%360000)}`.slice(-2)} : {`0${Math.floor(time/60000)%60}`.slice(-2)} : {`0${Math.floor(time/1000)%60}`.slice(-2)}
                 </p>
+
+                <div className='buttons'>
+                    {
+                        !isActive&&!isPaused?<button onClick={initiateStart} data-testid='start'>Start</button>:(!isPaused?<button data-testid='pause' onClick={initiatePause}>Pause</button>:<button data-testid='resume' onClick={initiateResume}>Resume</button>)
+                    }
+                    <button id='reset'data-testid='reset' onClick={initiateReset} disabled={}
+                </div>
             </div>
         </section>
     )
