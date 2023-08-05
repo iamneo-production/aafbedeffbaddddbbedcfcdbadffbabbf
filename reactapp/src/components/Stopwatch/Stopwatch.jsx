@@ -39,9 +39,10 @@ export default function Stopwatch(props) {
 
     const initiateReset = () => {
         clearInterval(increased.current)
+        setTime(0)
         setIsActive(false)
         setIsPaused(false)
-        setTime(0)
+        setIsResetDisabled(true);
     };
 
     return(
@@ -54,7 +55,9 @@ export default function Stopwatch(props) {
 
                 <div className='buttons'>
                     {
-                        !isActive&&!isPaused?<button onClick={initiateStart} data-testid='start'>Start</button>:(!isPaused?<button data-testid='pause' onClick={initiatePause}>Pause</button>:<button data-testid='resume' onClick={initiateResume}>Resume</button>)
+                        isActive ? <button onClick={initiatePause} data-testid='pause'>Pause</button>
+                            : !isPaused ? <button data-testid='pause' onClick={initiatePause}>Pause</button>
+                                :<button data-testid='resume' onClick={initiateResume}>Resume</button>
                     }
                     <button id='reset'data-testid='reset' onClick={initiateReset} disabled={!isActive}>Reset</button>
                 </div>
