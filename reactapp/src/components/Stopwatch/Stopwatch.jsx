@@ -47,7 +47,7 @@ export default function Stopwatch(props) {
                     {
                         !isActive&&!isPaused?<button onClick={initiateStart} data-testid='start'>Start</button>:(!isPaused?<button data-testid='pause' onClick={initiatePause}>Pause</button>:<button data-testid='resume' onClick={initiateResume}>Resume</button>)
                     }
-                    <button id='reset'data-testid='reset' onClick={initiateReset} disabled={}
+                    <button id='reset'data-testid='reset' onClick={initiateReset} disabled={!isActive}>Reset</button>
                 </div>
             </div>
         </section>
