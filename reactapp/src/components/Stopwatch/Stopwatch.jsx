@@ -1,31 +1,40 @@
 import {useState, useEffect, useRef, React} from "react";
 import '/home/coder/project/workspace/reactapp/src/App.css';
+import { act } from '@testing-library/react';
 
 export default function Stopwatch(props) {
-    const[time,setTime] = useState(0)
-    const[isActive,setIsActive] = useState(false)
-    const[isPaused,setIsPaused] = useState(false)
-    const increased = useRef(null)
+    const[time,setTime] = useState(0);
+    const[isActive,setIsActive] = useState(false);
+    const[isPaused,setIsPaused] = useState(false);
+    const [isResetDisabled, setIsResetDisabled] = useState(true);
+    const increased = useRef(null);
+
+    useEffect(() => {
+        if (isActive) {
+            increased.current = setInterval(() => {
+                act(() => {
+                  setTime(prevTime => prevTime + 1);
+                });
+            }, 1000);
+        } else {
+            clearInterval(increased.current);
+        }
+    }, [isActive, increased]);
 
     const initiateStart = () => {
         setIsActive(true);
-        setIsPaused(false);
-
-        increased.current = setInterval(() => {
-            setTime((time) => time + 1000)
-        },1000)
+        setIsResetDisabled(false);
     };
 
     const initiatePause = () => {
         clearInterval(increased.current);
-        setIsPaused(!isPaused);
+        setIsActive(false);
+        setIsPaused(true);
     };
 
     const initiateResume = () => {
-        setIsPaused(!isPaused);
-        increased.current = setInterval(() => {
-            setTime((time) => time + 1000)
-        },1000)
+        setIsRunning(true);
+        setIsPaused(false);
     };
 
     const initiateReset = () => {
