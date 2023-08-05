@@ -40,7 +40,7 @@ export default function Stopwatch(props) {
             <div className='inner'>
                 <h1> React Stopwatch </h1>
                 <p id='time' data-testid='time'>
-                    {`0${Math.floor(time%360000)}`}
+                    {`0${Math.floor(time%360000)}`.slice(-2)} : {`0${Math.floor(time/60000)%60}`.slice(-2)} : {`0${Math.floor(time/1000)%60}`}
                 </p>
             </div>
         </section>
