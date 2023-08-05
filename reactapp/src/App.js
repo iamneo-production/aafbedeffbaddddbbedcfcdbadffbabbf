@@ -5,7 +5,7 @@ import Stopwatch from './components/Stopwatch/Stopwatch';
 function App() {
   return (
     <div className="App">
-      <p style={{display:'none'}}>Learn react link</p>
+      {/* <p style={{display:'none'}}>Learn react link</p> */}
       <Stopwatch />
     </div>
   );
