@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+ 
+h1{
+  font-size: 6rem;
+  font-family: FF Sero Medium;
+}
+
