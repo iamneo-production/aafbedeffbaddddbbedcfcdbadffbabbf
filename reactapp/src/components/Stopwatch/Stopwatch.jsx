@@ -24,33 +24,41 @@ export default function Stopwatch(props) {
     const initiateStart = () => {
         setIsActive(true);
         setIsResetDisabled(false);
-    };
+    }
 
     const initiatePause = () => {
         clearInterval(increased.current);
         setIsActive(false);
         setIsPaused(true);
-    };
+    }
 
     const initiateResume = () => {
         setIsActive(true);
         setIsPaused(false);
-    };
+    }
 
     const initiateReset = () => {
-        clearInterval(increased.current)
-        setTime(0)
-        setIsActive(false)
-        setIsPaused(false)
+        clearInterval(increased.current);
+        setTime(0);
+        setIsActive(false);
+        setIsPaused(false);
         setIsResetDisabled(true);
-    };
+    }
+
+    const formatTime = (seconds) => {
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        let remainingMinutes = minutes % 60;
+        let remainingSeconds = seconds % 60;
+        return `${hours.toString().padStart(2, "0")} : ${remainingMinutes.toString().padStart(2, "0")} : ${remainingSeconds.toString().padStart(2, "0")}`
+    }
 
     return(
         <section id='stopwatch'>
             <div className='inner'>
                 <p> React Stopwatch </p>
                 <p id='time' data-testid='time'>
-                    {`0${Math.floor(time%360000)}`.slice(-2)} : {`0${Math.floor(time/60000)%60}`.slice(-2)} : {`0${Math.floor(time/1000)%60}`.slice(-2)}
+                    {formatTime(time)}
                 </p>
 
                 <div className='buttons'>
