@@ -48,9 +48,9 @@ p{
 
 #stopwatch {
   margin:auto;
-  /* margin-top: 10px; */
+  margin-top: 10px;
   height: 500px;
-  width:1000px;
+  width:70%;
   background-color: white;
   /* display: flex;
   flex-direction: column; */
@@ -60,7 +60,7 @@ p{
   border-width: 7px;
   border-color: #54bde1;
   border-radius: 3rem;
-  border-top-width: 6rem;
+  border-top-width: 5rem;
   border-bottom-width: 3rem;
 }
 
