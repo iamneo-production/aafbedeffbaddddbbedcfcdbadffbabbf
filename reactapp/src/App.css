@@ -38,11 +38,12 @@
 }
  
 p{
-  font-size: 60px;
+  font-size: 80px;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin:0px;
 }
 
 #stopwatch {
@@ -76,7 +77,8 @@ p{
 }
 
 .buttons {
-  margin: 3rem 0;
+  margin:auto;
+  /* margin: 3rem 0; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -86,7 +88,7 @@ p{
 
 .buttons > button {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 4vw;
+  width: auto;
   height: 5vh;
   border-radius: 3px;
   margin: 0px 6px;
