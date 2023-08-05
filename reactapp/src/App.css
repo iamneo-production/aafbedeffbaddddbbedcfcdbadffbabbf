@@ -84,6 +84,11 @@ h1{
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  border: 3px solid grey;
+  border-top-color: #767676;
+  border-left-color: #767676;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
 }
 
 .btn-grp {
