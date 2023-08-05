@@ -42,7 +42,7 @@ h1{
   font-family: FF Sero Medium;
 }
 
-.stopwatch {
+#stopwatch {
   height: 70vh;
   width:70vw;
   background-color: white;
